@@ -7,4 +7,99 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link href="project2.css" type="text/css" rel="stylesheet">	
 </head>
+<body>
+	<div class="wrapper">
+		
+		<video autoplay muted loop id="myVideo">
+		
+			<source src="Media/home.mp4" type="video/mp4">
+
+		</video>
+
+		<div class="logo">
+
+			<img src="Media/logo.png" width="180" height="137" alt="logo">
+
+		</div>
+
+		<div class="mainSearch">
+
+			<input type="text" id="entry" placeholder="Enter Name or ID">
+			<div id="button"><button onclick="submit()">Submit</button></div>
+		
+		</div>
+
+
+		<br><br>
+
+		<div id="output">
+			<div class="results">
+
+				<!-- ALL -->
+
+				<h1 id="name"></h1>
+				<img id="image">
+
+				<p>Category:</p>
+					<div id="resultCategory"></div>
+				<p>Common Locations:</p>
+					<div id="resultCommonLocations"></div>
+				<p>Description:</p>
+					<div id="description"></div>
+
+				<!-- Creatures 1-47  -->
+
+				<div id="dropHidden">
+					<p>Drops:</p>
+					<div id="drops"></div>
+				</div>
+
+				<!-- Creatures 48-83  -->
+			
+				<div id="CEHidden">
+					<p>Cooking Effect:</p>
+					<div id="cookingEffect"></div>
+				</div>
+
+				<div id="HRHidden">
+					<p>Hearts Recovered:</p>
+					<div id="heartsRec"></div>
+				</div>
+			
+				<!-- Monsters
+			
+				DROPS -->
+
+				<!-- Materials 
+			
+				COOKING EFFECT 
+		
+				HEARTS REC-->
+
+
+				<!-- Equipment  -->
+				<div id="AtkHidden">
+					<p>Attack:</p>
+					<div id="attack"></div>
+				</div>
+
+				<div id="DefHidden">
+					<p>Defense:</p>
+					<div id="defense"></div>
+				</div>
+
+				<p>Compendium ID:</p>
+				<div id="compID">
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+	<div id="raw">
+	</div>
+
+</body>
 </html>
