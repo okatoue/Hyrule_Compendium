@@ -39,3 +39,52 @@ function displayResults(data) {
 	$("#compID").html(data.data.id);
 	$("#image").attr("src", data.data.image);
 
+// CHANGING BACKGROUND DEPEDNING ON LOCATION
+	// SPLITS ARRAY OF LOCATIONS INTO ARRAY OF WORDS
+	if (data.data.common_locations != null) {
+		let words = data.data.common_locations.join(' ').split(' ');
+		// CHECKS WORDS IN EACH ARRAY AND PICKES A BACKGROUND FOR IT
+
+		if (words.includes("Eldin") || words.includes("Death")) {
+			$("#myVideo").attr("src", "Media/Eldin.mp4");
+
+		} else if (words.includes("Mountain") || words.includes("Tabantha")) {
+			$("#myVideo").attr("src", "Media/Mountain.mp4");
+
+		} else if (words.includes("Toronbo") || words.includes("Beach")) {
+			$("#myVideo").attr("src", "Media/Toronbo.mp4");
+		
+		} else if (words.includes("Faron") || words.includes("Floria")) {
+			$("#myVideo").attr("src", "Media/Faron.mp4");
+
+		} else if (words.includes("Lanayru")) {
+			$("#myVideo").attr("src", "Media/Zora.mp4");
+			
+		} else if (words.includes("Forest")) {
+			$("#myVideo").attr("src", "Media/Forest.mp4");
+
+		} else if (words.includes("Peaks") || words.includes("Dueling")) {
+			$("#myVideo").attr("src", "Media/Dueling.mp4");
+
+		} else if (words.includes("Hebra")) {
+				$("#myVideo").attr("src", "Media/Hebra.mp4");
+		
+		} else if (words.includes("Rist") || words.includes("Peninsula")) {
+			$("#myVideo").attr("src", "Media/Rist.mp4");
+		
+		} else if (words.includes("Gerudo") || words.includes("Desert")) {
+			$("#myVideo").attr("src", "Media/Gerudo.mp4");
+			
+		} else if (words.includes("Necluda")) {
+			$("#myVideo").attr("src", "Media/Necluda.mp4");
+			
+		} else if (words.includes("Hyrule")) {
+			$("#myVideo").attr("src", "Media/Hyrule.mp4");
+
+		} else {
+			$("#myVideo").attr("src", "Media/Spring.mp4");
+		}
+	} else {
+		$("#myVideo").attr("src", "Media/Spring.mp4");
+	}
+
