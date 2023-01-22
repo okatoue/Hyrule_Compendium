@@ -104,4 +104,82 @@ function displayResults(data) {
 		document.getElementById("DefHidden").style.display = "none";
 		document.getElementById("HRHidden").style.display = "none";
 
+	// RESULTS THAT PRINT FOR CREATURES WITH ID'S GREATER THEN 47
+	} else if (data.data.category == "creatures" && data.data.id > 47) {
 
+		if (data.data.cooking_effect != "") {
+			document.getElementById("CEHidden").style.display = "block";
+			$("#cookingEffect").html(data.data.cooking_effect);
+		} else {
+			document.getElementById("CEHidden").style.display = "none";
+		}
+
+		if (data.data.hearts_recovered > 0) {
+			document.getElementById("HRHidden").style.display = "block";
+			for (var i = 0; i < data.data.hearts_recovered; i++){
+				var img = document.createElement("img"); 
+				img.src = "Media/heart.png"; 
+				var src = document.getElementById("heartsRec"); 
+				src.appendChild(img); 
+			}
+		} else {
+			document.getElementById("HRHidden").style.display = "none";
+		}
+
+		// HIDDEN
+		document.getElementById("AtkHidden").style.display = "none";
+		document.getElementById("DefHidden").style.display = "none";
+		document.getElementById("dropHidden").style.display = "none";
+	
+
+
+	// RESULTS THAT PRINT FOR MONSTERS
+	} else if (data.data.category == "monsters") {
+
+		if (data.data.drops == null) {
+			document.getElementById("dropHidden").style.display = "none";
+		}
+		else if (data.data.drops.length < 1) {
+			document.getElementById("dropHidden").style.display = "none";
+		} else {
+			document.getElementById("dropHidden").style.display = "block";
+			$("#drops").html(data.data.drops);
+		}
+		
+		// HIDDEN
+		document.getElementById("AtkHidden").style.display = "none";
+		document.getElementById("DefHidden").style.display = "none";
+		document.getElementById("HRHidden").style.display = "none";
+		document.getElementById("CEHidden").style.display = "none";
+		
+// RESULTS THAT PRINT FOR MATERIALS
+	} else if (data.data.category == "materials") {
+
+		if (data.data.cooking_effect != "") {
+			document.getElementById("CEHidden").style.display = "block";
+			$("#cookingEffect").html(data.data.cooking_effect);
+		} else {
+			document.getElementById("CEHidden").style.display = "none";
+		}
+
+		if (data.data.hearts_recovered == 0) {
+			
+			document.getElementById("HRHidden").style.display = "none";
+
+		} else {
+
+			document.getElementById("HRHidden").style.display = "block";
+				if (data.data.hearts_recovered > 0 && data.data.hearts_recovered < 1) {
+					var img = document.createElement("img"); 
+						img.src = "Media/half.png"; 
+						var src = document.getElementById("heartsRec"); 
+						src.appendChild(img);
+				} else {
+					for (var i = 0; i < data.data.hearts_recovered; i++){
+						var img = document.createElement("img"); 
+						img.src = "Media/heart.png"; 
+						var src = document.getElementById("heartsRec"); 
+						src.appendChild(img); 
+					}
+				}
+		}
