@@ -235,3 +235,14 @@ function displayResults(data) {
 
 	} 
 }
+
+
+function submit() {
+	$("#output").show();
+	let url = "https://botw-compendium.herokuapp.com/api/v2/entry/";
+	let title = $("#entry").val();
+	url = url + title;
+	$.get(url, function(data){
+		displayResults(data);
+		});
+}
