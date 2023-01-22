@@ -1,0 +1,15 @@
+let fade = document.getElementById('#output');
+document.getElementById('button').onclick = function(){
+	fade.classList.toggle('fade');
+}
+
+
+function displayResults(data) {
+
+	const name = data.data.name;
+
+	function capitalize(name) {
+  		return name.charAt(0).toUpperCase() + name.slice(1);
+	}
+	const capsName = name.split(' ').map(capitalize).join(' ');
+	$("#name").html(capsName);
