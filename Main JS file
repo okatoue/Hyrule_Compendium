@@ -88,3 +88,20 @@ function displayResults(data) {
 		$("#myVideo").attr("src", "Media/Spring.mp4");
 	}
 
+	// RESULTS THAT PRINT FOR ID'S LESS THEN 48
+	 if (data.data.category == "creatures" && data.data.id < 48) {
+		
+		if (data.data.drops.length < 1) {
+			document.getElementById("dropHidden").style.display = "none";
+		} else {
+			document.getElementById("dropHidden").style.display = "block";
+			$("#drops").html(data.data.drops);
+		}
+
+		// HIDDEN
+		document.getElementById("CEHidden").style.display = "none";
+		document.getElementById("AtkHidden").style.display = "none";
+		document.getElementById("DefHidden").style.display = "none";
+		document.getElementById("HRHidden").style.display = "none";
+
+
