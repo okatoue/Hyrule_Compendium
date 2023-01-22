@@ -183,3 +183,55 @@ function displayResults(data) {
 					}
 				}
 		}
+
+		// HIDDEN
+		document.getElementById("dropHidden").style.display = "none";
+		document.getElementById("AtkHidden").style.display = "none";
+		document.getElementById("DefHidden").style.display = "none";
+
+
+
+	// RESULTS THAT PRINT FOR EQUIPMENT
+	} else if (data.data.category == "equipment") {
+
+
+
+		if (data.data.id > 347 && data.data.id < 354){	//ARROWS DONT HAVE ATK OR DEF
+
+			document.getElementById("AtkHidden").style.display = "none";
+			document.getElementById("DefHidden").style.display = "none";
+
+		} else if (data.data.id < 348) {							//SWORDS DONT HAVE DEF
+
+			document.getElementById("AtkHidden").style.display = "block";
+			$("#attack").html(data.data.attack);
+			document.getElementById("DefHidden").style.display = "none";
+
+		} else {															//SHIELDS DONT HAVE DEF
+
+			document.getElementById("DefHidden").style.display = "block";
+			$("#defense").html(data.data.defense);
+			document.getElementById("AtkHidden").style.display = "none";
+
+		}
+
+		//HIDDEN
+		document.getElementById("HRHidden").style.display = "none";
+		document.getElementById("CEHidden").style.display = "none";
+		document.getElementById("dropHidden").style.display = "none";
+
+
+
+	// RESULTS THAT PRINT FOR TREASURE
+	} else if (data.data.category == "treasure") {
+
+		$("#drops").html(data.data.drops);
+
+		//HIDDEN
+		document.getElementById("AtkHidden").style.display = "none";
+		document.getElementById("DefHidden").style.display = "none";
+		document.getElementById("HRHidden").style.display = "none";
+		document.getElementById("CEHidden").style.display = "none";
+
+	} 
+}
