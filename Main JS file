@@ -13,3 +13,29 @@ function displayResults(data) {
 	}
 	const capsName = name.split(' ').map(capitalize).join(' ');
 	$("#name").html(capsName);
+		//if (data.data.common_locations == null){
+	//	$("#resultCommonLocations").html("None");
+	//}
+
+	// RESULTS THAT PRINT THAT FOR ALL
+
+	const cat = data.data.category;
+
+	function capitalize(cat) {
+  		return cat.charAt(0).toUpperCase() + cat.slice(1);
+	}
+	const capsCat = cat.split(' ').map(capitalize).join(' ');
+	$("#resultCategory").html(capsCat);
+
+
+
+	if (data.data.common_locations == null) {
+		$("#resultCommonLocations").html("Unknown");
+	} else {
+		let locations = data.data.common_locations.join(', ');
+		$("#resultCommonLocations").html(locations);
+	}
+	$("#description").html(data.data.description);
+	$("#compID").html(data.data.id);
+	$("#image").attr("src", data.data.image);
+
